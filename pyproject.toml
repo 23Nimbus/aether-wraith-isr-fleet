@@ -1,0 +1,14 @@
+# pyproject.toml
+#
+# This file centralises configuration for a number of development tools
+# including Black and MyPy.  Consolidating settings here reduces
+# duplication and makes it clear which standards the project follows.
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+ignore_missing_imports = true

@@ -1,0 +1,11 @@
+# flake8 configuration
+#
+# This file defines the coding style rules enforced by the CI pipeline.
+# See https://flake8.pycqa.org/en/latest/user/configuration.html for
+# configuration options.  The selected settings here focus on
+# readability and avoid line wrapping problems with Black.
+
+[flake8]
+max-line-length = 100
+# Ignore rules conflicting with Black formatting and common Python patterns.
+extend-ignore = E203, W503

@@ -1,0 +1,7 @@
+Placeholder model file for the anomaly classifier.
+
+This file is intentionally small and acts as a sentinel for the presence of
+a trained anomaly classifier.  When a real model becomes available it should
+be exported using `joblib.dump` and replace the contents of this file.  The
+AI agent in `agents/aether_ai.py` will attempt to load the model from this
+location when performing classification.

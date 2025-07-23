@@ -1,0 +1,10 @@
+---
+default:
+  max_anomaly_rate: 0.05
+  min_events: 5
+  max_duration_seconds: 3600
+
+high_priority:
+  max_anomaly_rate: 0.02
+  min_events: 10
+  max_duration_seconds: 1800

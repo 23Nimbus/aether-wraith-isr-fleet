@@ -1,0 +1,6 @@
+# List of autonomous nodes registered with the Æther system.
+# Each entry contains the node ID, platform type, last known location
+# and available sensors.  Use ``node_management/register_node.py`` to add
+# new nodes.
+
+[]

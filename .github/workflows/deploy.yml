@@ -1,1 +1,72 @@
-code .github/workflows/deploy.yml
+name: Continuous Integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Static analysis and syntax check
+        run: |
+          # Compile all Python files to check for syntax errors. If any file fails, the job will error out.
+          python -c "import sys, pathlib; files = list(pathlib.Path('.').rglob('*.py'));\nfor f in files:\n    try:\n        compile(f.read_text(), str(f), 'exec')\n    except SyntaxError as exc:\n        print(f'Syntax error in {f}: {exc}')\n        sys.exit(1)\nprint('Syntax check passed for', len(files), 'files')"
+
+      - name: Lint with flake8
+        run: |
+          # Run flake8 with the project's configuration to enforce style conventions.
+          flake8 .
+
+      - name: Check formatting with Black
+        run: |
+          # Ensure that the code adheres to the formatting enforced by Black.
+          # The --check flag will exit with non‑zero status if changes are needed.
+          black --check .
+
+      - name: Type check with mypy
+        run: |
+          # Run mypy to perform optional static type checking.  The configuration
+          # in pyproject.toml is used by default.
+          mypy aether-wraith-isr-fleet
+
+      - name: Run unit tests
+        run: |
+          # Execute the pytest suite.  The -q flag produces concise output.
+          pytest -q
+
+      - name: Run simulation smoke test
+        run: |
+          # Execute the simulation harness to ensure end‑to‑end wiring works.
+          python sim_runner.py --criteria mission_success_criteria.json
+
+      - name: Generate CI status
+        run: |
+          # Create a simple status file summarising the build state.  The file
+          # includes a flag indicating readiness and hashes of key artefacts.
+          echo "ready=true" > ci.status
+          for f in missions/mission_template.yaml tasks/schedule.yaml telemetry/parse_telemetry.py agents/aether_ai.py orchestrator.py; do
+            sha="$(sha256sum "$f" | awk '{print $1}')"
+            echo "$sha  $f" >> ci.status
+          done
+
+      - name: Upload CI status
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-status
+          path: ci.status

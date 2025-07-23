@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 # schedule.yaml
 #
 # Defines periodic tasks for the orchestrator.  Each entry has a cron
@@ -12,3 +13,18 @@ tasks:
   - name: weekly_isr_sweep_replan
     cron: "0 0 * * 0"          # every Sunday at midnight UTC
     action: replan_isr_sweep
+=======
+    # schedule.yaml
+    #
+    # Defines periodic tasks for the orchestrator.  Each entry has a cron
+    # expression and a task name understood by `orchestrator.py`.
+
+    tasks:
+      - name: daily_push_telemetry
+        cron: "0 0 * * *"          # every day at midnight UTC
+        action: push_telemetry
+
+      - name: weekly_isr_sweep_replan
+        cron: "0 0 * * 0"          # every Sunday at midnight UTC
+        action: replan_isr_sweep
+>>>>>>> 8abbd01 (feat: integrate modular async architecture into ÆTHER platform)

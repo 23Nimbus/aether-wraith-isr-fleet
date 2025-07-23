@@ -1,0 +1,17 @@
+{
+  "os": {
+    "system": "Linux",
+    "release": "6.12.13",
+    "version": "#1 SMP Thu Mar 13 11:34:50 UTC 2025"
+  },
+  "python": {
+    "version": "3.11.2",
+    "implementation": "CPython"
+  },
+  "dependencies": {
+    "pyyaml": "6.0.2",
+    "paho-mqtt": null,
+    "joblib": "1.5.1",
+    "croniter": null
+  }
+}
