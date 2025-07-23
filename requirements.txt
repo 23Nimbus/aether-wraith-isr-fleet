@@ -1,0 +1,17 @@
+# Project dependencies pinned for reproducibility.  Using explicit
+# version numbers ensures that development and CI environments
+# behave consistently regardless of upstream changes.  If you need to
+# update a dependency, bump the version here and verify the CI builds.
+pyyaml==6.0
+paho-mqtt==1.6.1
+joblib==1.3.2
+croniter==1.3.15
+
+# Development tools.  These packages are used only during development
+# and in CI for static analysis, formatting and test execution.  They
+# should not impact runtime behaviour but are included here so they
+# are installed by the workflow via ``-r requirements.txt``.
+pytest==7.4.2
+black==23.9.1
+flake8==6.1.0
+mypy==1.6.1

@@ -1,0 +1,6 @@
+timestamp,node_id,sensor,key,value
+2025-01-01T00:00:00Z,node-001,eo_ir_module,temperature,15.2
+2025-01-01T00:00:00Z,node-001,eo_ir_module,lat,32.7767
+2025-01-01T00:00:00Z,node-001,eo_ir_module,lon,-96.797
+2025-01-01T00:00:05Z,node-001,sar_pod,range,250.0
+2025-01-01T00:00:05Z,node-001,sar_pod,signal_strength,-72.5
