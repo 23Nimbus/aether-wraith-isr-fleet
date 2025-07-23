@@ -1,0 +1,30 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments and environment files
+.venv/
+.env
+
+# Logs and telemetry data
+*.log
+telemetry/*.csv
+telemetry/*.json
+
+# Allow specific telemetry files to be tracked
+!telemetry/sample_stream.json
+!telemetry/event_log.csv
+
+# Jupyter notebooks
+*.ipynb
+
+# Models and generated artifacts
+models/*.joblib
+aether.system_report.json
+aether.checksum.sha256
+ci.status
+orchestration_log.json
+
+# Node simulation images
+docker/node-sim*

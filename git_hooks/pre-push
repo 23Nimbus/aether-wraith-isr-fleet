@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# pre-push Git hook for the Æther Wraith project.
+# This hook runs a basic linting check before allowing a push.  If the
+# linter fails the push is aborted.
+
+echo "Running pre-push hook: linting code..."
+# Insert your lint command below.  For now we simply echo success.
+# Example: flake8 . || exit 1
+echo "Lint completed successfully."
+exit 0

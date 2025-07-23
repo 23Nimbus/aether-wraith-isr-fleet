@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# commit-msg Git hook for the Æther Wraith project.
+# Enforces a simple conventional commit style: <type>: <subject>
+msg_file="$1"
+msg=$(head -n1 "$msg_file")
+
+# Simple regex: type(scope)?: subject
+if [[ ! "$msg" =~ ^[a-zA-Z]+\(:?.*\):\ .+ ]]; then
+  echo "\e[31mERROR:\e[0m Commit message must follow the Conventional Commits format (e.g. feat(component): add new feature)." >&2
+  exit 1
+fi
+exit 0

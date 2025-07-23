@@ -1,0 +1,18 @@
+{
+  "nodes": {
+    "node-001": {
+      "location": "grid-23A",
+      "ip": "192.168.1.2",
+      "comms": ["MQTT"]
+    },
+    "node-002": {
+      "location": "grid-23B",
+      "ip": "192.168.1.3",
+      "comms": ["MQTT"]
+    }
+  },
+  "links": [
+    {"source": "node-001", "target": "node-002", "latency_ms": 50},
+    {"source": "node-002", "target": "node-001", "latency_ms": 50}
+  ]
+}

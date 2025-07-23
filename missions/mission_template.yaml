@@ -1,0 +1,23 @@
+---
+# mission_template.yaml
+#
+# This YAML document defines the fields required to construct a mission
+# for the Æther Wraith ISR fleet.  Use `generate_mission.py` to take a
+# prompt or high‑level description and merge it with this template to
+# produce a concrete mission plan.  Fields left as `null` should be
+# overridden in the generated mission.
+
+mission:
+  objective: null            # Primary objective of the mission (e.g. "collect SAR imagery of target area")
+  target_zone: null          # Geographic or grid reference for the mission AO
+  priority_tier: 3           # 1 = critical, 5 = low priority
+  node_config_override:      # Per‑node configuration overrides
+    default:
+      max_altitude: 120      # metres
+      max_speed: 30          # m/s
+      sensors:
+        - eo_ir_module
+        - sar_pod
+    # node_id:
+    #   max_altitude: 100
+    #   sensors: ["sigint_sdr_blade"]

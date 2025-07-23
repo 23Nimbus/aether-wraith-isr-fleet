@@ -1,0 +1,21 @@
+[
+  {
+    "timestamp": "2025-01-01T00:00:00Z",
+    "node_id": "node-001",
+    "sensor": "eo_ir_module",
+    "data": {
+      "temperature": 15.2,
+      "lat": 32.7767,
+      "lon": -96.7970
+    }
+  },
+  {
+    "timestamp": "2025-01-01T00:00:05Z",
+    "node_id": "node-001",
+    "sensor": "sar_pod",
+    "data": {
+      "range": 250.0,
+      "signal_strength": -72.5
+    }
+  }
+]
